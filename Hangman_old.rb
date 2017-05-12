@@ -15,9 +15,6 @@ module HangmanMethods
     puts "*                      YOU HANG!!                         *"
     puts "*                                                         *"
     puts "***********************************************************"
-    puts " "
-    puts "Please enter player name:"
-    @name = gets.chomp.capitalize
   end
 
 # >< <> >< <> >< <> >< >< <> >< <> >< <> >< >< <> >< <>
@@ -337,11 +334,13 @@ end
 
 class Game
   include HangmanMethods
+  attr_reader :name 
   require 'date'
 
 # >< <> >< <> >< <> >< >< <> >< <> >< <> >< >< <> >< <>
   
-  def initialize
+  def initialize(name = "Neil")
+    @name = name 
     greeting
     game_setup
     start_game
@@ -360,5 +359,5 @@ end
 
 #************************************************************************
 
-hang = Game.new
+hang = Game.new("Niall")
 hang.play
